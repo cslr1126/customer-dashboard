@@ -5,15 +5,15 @@ import RightSideNav from "../components/RightSideNav";
 
 const HomeLayout = () => {
   return (
-    <div className="wrapper">
-      <div className="row align-items-start">
-        <div className="col">
+    <div className="wrapper container-fluid">
+      <div className="row">
+        <div className="col-md-12 col-lg-4 order-lg-1">
             <LeftSideName />
         </div>
-        <div className="col">
+        <div className="col-md-12 col-lg-4 order-lg-2ß order-md-2">
             <MainPanel />
         </div>
-        <div className="col">
+        <div className="col-md-12 col-lg-4 order-lg-2">
             <RightSideNav />
           
         </div>
