@@ -18,14 +18,15 @@ export default function App() {
 			setUsers(res.items);
 		})
 	}, []);
-
-  return (
+  let layoutUrl= new URL(Liferay.ThemeDisplay.getLayoutURL())
+  return (  
+    console.log("layoutURL: ", layoutUrl)
     <Router>
       <Switch>
         <Route path="/about">
           <AboutLayout />
         </Route>
-        <Route path="/users">
+        <Route path="/{%path:.*}">
           
         </Route>
         <Route path="/">
@@ -41,7 +42,6 @@ export default function App() {
 
 
 function Users(props) {
-  console.log(props)
   const users  = props.users;
   return (
     <div className="row">
