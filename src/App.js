@@ -12,6 +12,7 @@ import { getUsers } from './utils/request';
 
 export default function App() {
   const [users, setUsers] = useState([]);
+  console.log("layoutURL: ", layoutUrl)
 
 	useEffect(() => {
 		getUsers().then(res => {
@@ -20,7 +21,6 @@ export default function App() {
 	}, []);
   let layoutUrl= new URL(Liferay.ThemeDisplay.getLayoutURL())
   return (  
-    console.log("layoutURL: ", layoutUrl)
     <Router>
       <Switch>
         <Route path="/about">
