@@ -12,7 +12,7 @@ import { getUsers } from './utils/request';
 
 export default function App() {
   const [users, setUsers] = useState([]);
-  console.log("layoutURL: ", layoutUrl)
+  
 
 	useEffect(() => {
 		getUsers().then(res => {
@@ -20,6 +20,7 @@ export default function App() {
 		})
 	}, []);
   let layoutUrl= new URL(Liferay.ThemeDisplay.getLayoutURL())
+  console.log("layoutURL: ", layoutUrl)
   return (  
     <Router>
       <Switch>
