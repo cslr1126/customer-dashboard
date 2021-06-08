@@ -1,5 +1,5 @@
 import React from "react";
-import StickNav from "../components/StickyNav";
+import StickyNav from "../components/StickyNav";
 import MainPanel from "../components/MainPanel";
 
 
@@ -7,7 +7,7 @@ const HomeLayout = () => {
   return (
     <div className="wrapper">
       <div className="row">
-        <StickNav/>
+        <StickyNav/>
         <MainPanel />
       </div>
     </div>
