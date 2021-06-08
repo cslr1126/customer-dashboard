@@ -15,6 +15,11 @@
 		"webpack-dev-server": "3.2.1"
 	},
 	"dependencies": {
+		"@clayui/alert": "^3.26.0",
+		"@clayui/button": "^3.6.0",
+		"@clayui/card": "^3.29.0",
+		"@clayui/css": "^3.29.0",
+		"@clayui/loading-indicator": "^3.2.0",
 		"dotenv": "^10.0.0",
 		"react": "16.8.6",
 		"react-dom": "16.8.6"
