@@ -5,18 +5,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ClayAlert from '@clayui/alert';
 import HomeLayout from './layouts/HomeLayout';
 import AboutLayout from './layouts/AboutLayout';
-import { getUsers } from './utils/request';
+
 
 export default function App() {
-  const [ users, setUsers ] = useState([]);
-
-  useEffect(() => {
-    getUsers().then(res => {
-      setUsers(res.items);
-    })
-  }, [])
+  
   return (
     <Router>
       <Switch>
@@ -24,35 +19,33 @@ export default function App() {
           <AboutLayout />
         </Route>
         <Route path="/users">
-          <Users users={users}/>
+        {isSignedIn() ? (
+            <div>
+              <h1 className="text-center mb-4">Users</h1>
+              <Users users={users}/>
+            </div>
+          ) : (
+            <ClayAlert displayType="warning" title="Attention:">
+              You need to sign in to see this content.
+            </ClayAlert>
+          )}
+          
         </Route>
         <Route path="/">
           <HomeLayout />
         </Route>
       </Switch>
-
     </Router>
   );
 }
 
+export function isSignedIn() {
+  if (process.env.NODE_ENV === 'development') {
+    return false;
+  }
+  return Liferay().ThemeDisplay.isSignedIn();
+}
 
-
-function Users(props) {
-  const users = props.users;
-  return (
-    <div className="row">
-      <div className="col-4">
-        <h2>Users</h2>
-        {
-          users.map(user => (
-            <div key={user.id}>
-              {user.givenName} {user.familyName}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-    
-    
-  )
+export function Liferay() {
+  return window['Liferay'];
 }
