@@ -1,4 +1,4 @@
-import React, { userState, useEffect, useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,7 @@ import {
 import ClayAlert from '@clayui/alert';
 import HomeLayout from './layouts/HomeLayout';
 import AboutLayout from './layouts/AboutLayout';
-
+import UserList from './components/users/UserList';
 
 export default function App() {
   
@@ -19,20 +19,20 @@ export default function App() {
           <AboutLayout />
         </Route>
         <Route path="/users">
-        {isSignedIn() ? (
-            <div>
-              <h1 className="text-center mb-4">Users</h1>
-              <Users users={users}/>
-            </div>
-          ) : (
-            <ClayAlert displayType="warning" title="Attention:">
-              You need to sign in to see this content.
-            </ClayAlert>
-          )}
-          
+           
         </Route>
         <Route path="/">
           <HomeLayout />
+          {isSignedIn() ? (
+              <div>
+                <h1 className="text-center mb-4">Users</h1>
+                <UserList />
+              </div>
+            ) : (
+              <ClayAlert displayType="warning" title="Attention:">
+                You need to sign in to see this content.
+              </ClayAlert>
+            )}          
         </Route>
       </Switch>
     </Router>
@@ -41,7 +41,7 @@ export default function App() {
 
 export function isSignedIn() {
   if (process.env.NODE_ENV === 'development') {
-    return false;
+    return true;
   }
   return Liferay().ThemeDisplay.isSignedIn();
 }

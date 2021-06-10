@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { getUsers } from './utils/request';
+import { getUsers } from '../../utils/request';
 
-const [users, setUsers] = useState([]);
-	useEffect(() => {
-		getUsers().then(res => {
-			setUsers(res.items);
-		})
-	}, []);
-
-export default UserList = () => {
-  const users = props.users;
+const UserList = () => {
+ const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getUsers().then(res => {
+        setUsers(res.items);
+    })
+  }, []);
  return (
       <div className="row">
         <div className="col-4">
@@ -26,3 +24,5 @@ export default UserList = () => {
       </div>
     )
 }
+
+export default UserList;
