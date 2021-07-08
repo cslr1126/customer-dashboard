@@ -23,12 +23,12 @@ const MainPanel = () => {
                 <div className="col-sm-4">
                 <div className="card" style={styles.card}>
                   <div className="card-body">
-                    <h5 className="card-title">12</h5>
-                    <p className="card-text">Actions Required</p>
+                    <h5 className="card-title">3</h5>
+                    <p className="card-text">Tasks Pending</p>
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4">
+                <div className="col-sm-4">
                 <div className="card" style={styles.card}>
                   <div className="card-body">
                     <h5 className="card-title">12</h5>

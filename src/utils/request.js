@@ -1,10 +1,20 @@
-export function getUsers(host) {
-    return Liferay.Util.fetch(
+
+
+export function getUsers(isLocal){
+    return ( isLocal ? getLocalUsers() :
+      Liferay.Util.fetch(
         '/o/headless-admin-user/v1.0/user-accounts',
         {method:'GET'}
-    ).then( res=> res.json() );
+    ).then( res=> res.json())) 
 }
 
+export function getLocalUsers(){
+    return fetch('http://localhost:8080/o/headless-admin-user/v1.0/user-accounts', {
+        headers: {'Authorization': 'Basic ' + btoa('test@test.com:test')}
+            })
+           .then(res => res.json())
+           .then(json => console.log(json)) 
+}
 // Get the Structed IDs for content
 export function getStructures(){
     return Liferay.Util.fetch(

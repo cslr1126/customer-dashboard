@@ -23,9 +23,11 @@
 		"@clayui/loading-indicator": "^3.2.0",
 		"apollo-boost": "^0.4.9",
 		"apollo-link-context": "^1.0.20",
+		"base-64": "^1.0.0",
 		"dotenv": "^10.0.0",
 		"graphql": "^15.5.0",
 		"moment": "^2.29.1",
+		"node-sass": "^6.0.1",
 		"react": "16.8.6",
 		"react-dom": "16.8.6",
 		"react-moment": "^1.1.1",
@@ -41,7 +43,7 @@
 		"start": "lnbs-start"
 	},
 	"portlet": {
-		"com.liferay.portlet.display-category": "category.dashkit",
+		"com.liferay.portlet.display-category": "DashKit",
 		"com.liferay.portlet.header-portlet-css": "/css/styles.css",
 		"com.liferay.portlet.instanceable": true,
 		"javax.portlet.name": "customerdashboard",

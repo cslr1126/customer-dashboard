@@ -23,11 +23,8 @@ export default function App() {
         </Route>
         <Route path="/">
           <HomeLayout />
-          {isSignedIn() ? (
-              <div>
-                <h1 className="text-center mb-4">Users</h1>
-                <UserList />
-              </div>
+          {isLocal && isSignedIn ? (
+                <UserList isLocal={isLocal()}/>
             ) : (
               <ClayAlert displayType="warning" title="Attention:">
                 You need to sign in to see this content.
@@ -37,6 +34,13 @@ export default function App() {
       </Switch>
     </Router>
   );
+}
+
+
+export function isLocal() {
+  if (process.env.NODE_HOST === 'localhost') 
+   console.log('is local')
+   return true;
 }
 
 export function isSignedIn() {
