@@ -33,3 +33,4 @@ export function getWebContent(){
 
 // Get a list of Stuctured content 
 // v1.0​/sites​/{siteId}​/content-structures
+
