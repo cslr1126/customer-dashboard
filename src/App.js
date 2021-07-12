@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
@@ -15,12 +15,13 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/about">
-          <AboutLayout />
-        </Route>
-        <Route path="/users">
-           
-        </Route>
+        <Route 
+          exact 
+          path="/about"
+          component={AboutLayout}
+          />
+          
+        
         <Route path="/">
           <HomeLayout />
           {isLocal && isSignedIn ? (

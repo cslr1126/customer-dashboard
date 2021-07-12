@@ -1,6 +1,11 @@
-
-
-
 .wrapper {
     background-color: "blue";
+}
+
+.mx-n2 {
+    margin-left: -.5rem!important;
+}
+
+.mx-n2 {
+    margin-right: -.5rem!important;
 }
